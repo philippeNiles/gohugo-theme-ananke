@@ -1,0 +1,18 @@
+{{/* For Users's overwrite */}}
+
+<nav class="pv2 ph3 ph4-ns" role="navigation">
+    <div class="flex-r justify-between items-center center">
+        {{ partial "i18nlist.html" . }}
+        {{ if .Site.Menus.footer }}
+          <ul class="{{ cond (eq $.Site.Language.LanguageDirection "rtl") "pr0 ml3" "pl0 mr3 mv0" }}">
+            {{ range .Site.Menus.footer }}
+            <li class="list f5 f4-ns fw4 dib {{ cond (eq $.Site.Language.LanguageDirection "rtl") "pl3" "pr3" }}">
+              <a class="hover-white no-underline white-70" href="{{ .URL }}" title="{{ i18n "pageTitle" . }}">
+                {{ .Name }}
+              </a>
+            </li>
+            {{ end }}
+          </ul>
+        {{ end }}
+    </div>
+</nav>
